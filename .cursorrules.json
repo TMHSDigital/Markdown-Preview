@@ -1,0 +1,84 @@
+{
+    "version": "1.0",
+    "rules": [
+      {
+        "name": "Go Documentation Enforcement",
+        "description": "Ensures all exported functions, types, and methods have proper documentation comments",
+        "pattern": "^func\\s+([A-Z][a-zA-Z0-9_]*)\\s*\\(|^type\\s+([A-Z][a-zA-Z0-9_]*)\\s+",
+        "preContextPattern": "^\\s*//\\s+\\w+",
+        "severity": "warning",
+        "message": "Exported element requires documentation comment that begins with the element name"
+      },
+      {
+        "name": "Error Handling Check",
+        "description": "Ensures errors are not ignored",
+        "pattern": "^\\s*\\w+,\\s*(?:_|err)\\s*:=\\s*.+$",
+        "postContextPattern": "^\\s*(?!if\\s+err\\s*!=\\s*nil)",
+        "severity": "error",
+        "message": "Error is not being checked. Always check errors in Go."
+      },
+      {
+        "name": "SQL Injection Prevention",
+        "description": "Warns about potential SQL injection vulnerabilities",
+        "pattern": "\\.Query\\(\".*\\$\\{|\\$\\{.*\\}.*Query\\(|db\\.Exec\\(\".*\\+",
+        "severity": "error",
+        "message": "Potential SQL injection vulnerability. Use parameterized queries."
+      },
+      {
+        "name": "Hard-coded Credentials Check",
+        "description": "Detects hard-coded credentials",
+        "pattern": "(?i)(password|secret|token|key|apikey|api_key)\\s*(:|=)\\s*[\\\"|\\']([^\\\"\\']*)[\\\"|\\']",
+        "severity": "error",
+        "message": "Hard-coded credential detected. Use environment variables or a secure secret management solution."
+      },
+      {
+        "name": "Context Propagation",
+        "description": "Ensures contexts are properly propagated",
+        "pattern": "func\\s+\\w+\\([^)]*\\)\\s*\\{[^}]*http\\.\\w+\\([^)]*\\)",
+        "negativePattern": "context",
+        "severity": "warning",
+        "message": "Consider using context for cancellation in HTTP operations"
+      },
+      {
+        "name": "README.md Check",
+        "description": "Ensures README.md is updated when code changes",
+        "filePattern": ".*\\.go$",
+        "associatedFiles": ["README.md"],
+        "severity": "info",
+        "message": "Consider updating README.md to reflect code changes"
+      },
+      {
+        "name": "File Watch Resource Cleanup",
+        "description": "Ensures file watchers are properly closed",
+        "pattern": "fsnotify\\.NewWatcher\\(\\)",
+        "postContextPattern": "defer\\s+\\w+\\.Close\\(\\)",
+        "negativePostContextPattern": "defer\\s+\\w+\\.Close\\(\\)",
+        "severity": "warning",
+        "message": "Remember to close file watchers with 'defer watcher.Close()'"
+      },
+      {
+        "name": "WebSocket Connection Handling",
+        "description": "Ensures WebSocket connections are properly handled",
+        "pattern": "websocket\\.Upgrade\\(|gorilla\\/websocket",
+        "postContextPattern": "defer\\s+\\w+\\.Close\\(\\)",
+        "negativePostContextPattern": "defer\\s+\\w+\\.Close\\(\\)",
+        "severity": "warning",
+        "message": "Remember to close WebSocket connections"
+      },
+      {
+        "name": "HTML Template Injection Prevention",
+        "description": "Warns about potential template injection",
+        "pattern": "template\\.HTML\\(|template\\.JS\\(",
+        "severity": "warning",
+        "message": "Using template.HTML or template.JS bypasses HTML escaping. Make sure the content is safe."
+      },
+      {
+        "name": "goroutine Leak Prevention",
+        "description": "Helps prevent goroutine leaks",
+        "pattern": "go\\s+func\\(\\)",
+        "negativeContextPattern": "context|done|cancel",
+        "severity": "warning",
+        "message": "Consider using a context or done channel to prevent goroutine leaks"
+      }
+    ]
+  }

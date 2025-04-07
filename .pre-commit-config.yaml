@@ -1,0 +1,54 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+    -   id: check-added-large-files
+    -   id: detect-private-key
+    -   id: check-merge-conflict
+    -   id: no-commit-to-branch
+        args: [--branch, main]
+
+-   repo: https://github.com/dnephin/pre-commit-golang
+    rev: v0.5.1
+    hooks:
+    -   id: go-fmt
+    -   id: go-imports
+    -   id: go-cyclo
+        args: [-over=15]
+    -   id: validate-toml
+    -   id: no-go-testing
+    -   id: golangci-lint
+    -   id: go-critic
+    -   id: go-unit-tests
+    -   id: go-build
+
+-   repo: https://github.com/zricethezav/gitleaks
+    rev: v8.16.3
+    hooks:
+    -   id: gitleaks
+
+-   repo: local
+    hooks:
+    -   id: check-readme-updated
+        name: Check README.md is updated
+        entry: bash -c 'git diff --cached --name-only | grep -q "\.go$" && git diff --cached --name-only | grep -q "README.md" || (echo "Go files changed but README.md not updated" && exit 1) || exit 0'
+        language: system
+        pass_filenames: false
+        always_run: true
+
+    -   id: check-security-checklist
+        name: Review Security Checklist
+        entry: bash -c 'echo "Remember to review SECURITY_CHECKLIST.md for your changes" && exit 0'
+        language: system
+        files: '\.go$'
+        pass_filenames: false
+
+    -   id: check-godoc
+        name: Check GoDoc compliance
+        entry: bash -c 'go list ./... | xargs -n 1 go doc -all | grep -q "^package" || (echo "Missing package documentation" && exit 1)'
+        language: system
+        files: '\.go$'
+        pass_filenames: false

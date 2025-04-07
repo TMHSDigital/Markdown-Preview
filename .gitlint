@@ -1,0 +1,35 @@
+[general]
+# Ignore commit messages for merge commits
+ignore-merge-commits=true
+# Ignore commit messages for fixup commits
+ignore-fixup-commits=true
+# Ignore commit messages for squash commits
+ignore-squash-commits=true
+
+# Set the line length to 100
+line-length=100
+
+# Enforce conventional commits - https://www.conventionalcommits.org
+[title-match-regex]
+regex=^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\([a-z0-9_-]+\))?: .+$
+
+[body-min-length]
+min-length=5
+
+[body-max-line-length]
+line-length=100
+
+# Don't allow trailing white spaces
+[body-trailing-whitespace]
+# Whether to enforce no trailing whitespace in the commit message body
+enforce=true
+
+# Enforce security-related keywords in the commit log
+[body-match-regex]
+# Regex to enforce that security fixes are labeled appropriately
+regex=(?i)(security|vuln|cve|exploit|inject|xss|csrf|traversal|auth|password|secret|credential)
+
+# Make sure commits reference GitHub issues or tickets
+[body-requires-issue-reference]
+# Whether to enforce that a commit body contains an issue reference
+regex=(?:refs?|close[sd]?|fix(?:es)?)[\s:]+(?:#\d+|[A-Z]+-\d+)

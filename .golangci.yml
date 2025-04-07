@@ -1,0 +1,50 @@
+linters:
+  enable:
+    - errcheck        # Checks for unchecked errors
+    - gosec          # Inspects source code for security issues
+    - govet          # Reports suspicious constructs
+    - staticcheck    # Go static analysis tool
+    - stylecheck     # Stylecheck is a replacement for golint
+    - godot          # Check if comments end with a period
+    - godox          # Tool for detection of FIXME, TODO comments
+    - gofmt          # Checks whether code was gofmt-ed
+    - goimports      # Checks import statements are formatted according to goimports
+    - misspell       # Finds commonly misspelled English words
+    - unconvert      # Remove unnecessary type conversions
+    - unparam        # Reports unused function parameters
+    - whitespace     # Tool for detection of leading and trailing whitespace
+    - wsl            # Whitespace Linter - Forces empty lines at right places
+
+issues:
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - gomnd      # Disable magic number detector in tests
+
+linters-settings:
+  govet:
+    check-shadowing: true
+  golint:
+    min-confidence: 0.8
+  gocyclo:
+    min-complexity: 15
+  goconst:
+    min-len: 3
+    min-occurrences: 3
+  godox:
+    keywords:
+      - FIXME
+      - TODO
+      - BUG
+  godot:
+    capital: true
+  gosec:
+    excludes:
+      - G107 # SSRF protection false positives
+
+run:
+  deadline: 5m
+  tests: true
+  skip-dirs:
+    - vendor
+    - third_party
