@@ -25,7 +25,11 @@
 Markdown-Preview is a lightweight yet powerful markdown editor that combines real-time preview with modern features. Built with performance and usability in mind, it offers a seamless writing experience for developers, technical writers, and markdown enthusiasts.
 
 <div align="center">
-  <img src="static/images/screenshot.png" alt="Markdown-Preview Screenshot" width="800"/>
+  <p><strong>Dark Theme</strong></p>
+  <img src="screenshots/dark.png" alt="Dark Theme Screenshot" width="800"/>
+  <br/><br/>
+  <p><strong>Light Theme</strong></p>
+  <img src="screenshots/light.png" alt="Light Theme Screenshot" width="800"/>
 </div>
 
 ## Features
