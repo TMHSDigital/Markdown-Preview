@@ -39,7 +39,7 @@ Markdown-Preview is a lightweight yet powerful markdown editor that combines rea
 | Editor | - Real-time preview<br>- Split view with resizable panes<br>- Syntax highlighting<br>- Auto-save functionality | Advanced editor with instant preview and modern IDE features |
 | Appearance | - Dark/Light mode<br>- Clean, modern UI<br>- Mobile responsive design | Polished interface that adapts to any device or preference |
 | Functionality | - Offline support<br>- Image upload & drag-n-drop<br>- Keyboard shortcuts | Works without internet and supports rich media content |
-| Documentation | - Interactive markdown guide<br>- Tooltips and hints | Built-in learning resources and contextual help |
+| Documentation | - **Comprehensive Markdown Guide:**<br>  - Interactive examples (click-to-copy)<br>  - Live Markdown-to-HTML demo<br>  - Common patterns/templates<br>  - Guide search functionality<br>  - Shortcut cheat sheet<br>  - Fullscreen mode<br>- Contextual tooltips and hints | Built-in learning resources and contextual help, significantly enhanced. |
 
 ## Technical Details
 
