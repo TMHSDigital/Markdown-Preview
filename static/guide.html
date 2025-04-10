@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Guide</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css">
+</head>
+<body class="guide-container">
+    <nav class="guide-sidebar">
+        <h2>Contents</h2>
+        <input type="text" id="guide-search" placeholder="Search guide...">
+        <ul id="guide-nav-list">
+            <li><a href="#basics">Basic Syntax</a></li>
+            <li><a href="#formatting">Text Formatting</a></li>
+            <li><a href="#lists">Lists</a></li>
+            <li><a href="#links">Links & Images</a></li>
+            <li><a href="#code">Code Blocks</a></li>
+            <li><a href="#tables">Tables</a></li>
+            <li><a href="#quotes">Quotes & Notes</a></li>
+            <li><a href="#extended">Extended Features</a></li>
+            <li><a href="#tips">Tips & Tricks</a></li>
+            <li><a href="#live-demo">Live Demo</a></li>
+            <li><a href="#patterns">Common Patterns</a></li>
+            <li><a href="#shortcuts">Keyboard Shortcuts</a></li>
+        </ul>
+    </nav>
+
+    <main class="guide-content">
+        <button id="guide-fullscreen-btn" title="Toggle Fullscreen Guide">
+            <i class="bi bi-arrows-fullscreen"></i>
+        </button>
+        <section id="basics">
+            <h1>Markdown Guide</h1>
+            <p>Welcome to the comprehensive markdown guide. Click any example to copy it to your clipboard. Each section includes practical examples and tips for better writing.</p>
+
+            <h2>Basic Syntax</h2>
+            <div class="example-block" data-tooltip="Headers create document structure - use them in order">
+                <h3>Headers</h3>
+                <pre><code class="language-markdown"># Main Title (H1)
+## Section Title (H2)
+### Subsection (H3)
+#### Minor Section (H4)</code></pre>
+                <p class="example-tip">💡 Use only one H1 per document and maintain hierarchy</p>
+            </div>
+
+            <div class="example-block" data-tooltip="Paragraphs are separated by blank lines">
+                <h3>Paragraphs</h3>
+                <pre><code class="language-markdown">First paragraph.
+
+Second paragraph with
+a line break.</code></pre>
+                <p class="example-tip">💡 Use two spaces at the end of a line for a line break</p>
+            </div>
+        </section>
+
+        <section id="formatting">
+            <h2>Text Formatting</h2>
+            <div class="example-block" data-tooltip="Combine formatting for rich text">
+                <pre><code class="language-markdown">**Bold text** or __also bold__
+*Italic text* or _also italic_
+***Bold and italic***
+~~Strikethrough text~~
+**Bold with *italic* inside**
+`Inline code with *formatting*`</code></pre>
+                <p class="example-tip">💡 Be consistent with your choice of markers (* or _)</p>
+            </div>
+        </section>
+
+        <section id="lists">
+            <h2>Lists</h2>
+            <div class="example-block" data-tooltip="Create clear, structured lists">
+                <h3>Unordered Lists</h3>
+                <pre><code class="language-markdown">- Main item
+  - Sub-item
+    - Sub-sub-item
+- Another item
+  * Mix bullet styles
+  + If you want to</code></pre>
+            </div>
+
+            <div class="example-block" data-tooltip="Numbers don't have to be in order">
+                <h3>Ordered Lists</h3>
+                <pre><code class="language-markdown">1. First item
+2. Second item
+   1. Sub-item one
+   2. Sub-item two
+3. Third item
+
+1. Numbers are auto-corrected
+1. So you can use all 1's
+1. Markdown will fix them</code></pre>
+                <p class="example-tip">💡 Use 1. for all items to make reordering easier</p>
+            </div>
+
+            <div class="example-block" data-tooltip="Task lists for todos">
+                <h3>Task Lists</h3>
+                <pre><code class="language-markdown">- [x] Completed task
+- [ ] Pending task
+- [ ] Another task
+  - [x] Subtask completed
+  - [ ] Subtask pending</code></pre>
+            </div>
+        </section>
+
+        <section id="links">
+            <h2>Links & Images</h2>
+            <div class="example-block" data-tooltip="Create readable, accessible links">
+                <h3>Links</h3>
+                <pre><code class="language-markdown">[Basic link](https://example.com)
+[Link with title](https://example.com "Hover text")
+[Reference link][ref]
+[Another reference][ref]
+
+[ref]: https://example.com "Optional title"</code></pre>
+                <p class="example-tip">💡 Use reference links to avoid repeating long URLs</p>
+            </div>
+
+            <div class="example-block" data-tooltip="Always include descriptive alt text">
+                <h3>Images</h3>
+                <pre><code class="language-markdown">![Alt text](image.jpg)
+![Alt text](image.jpg "Optional title")
+[![Clickable image](image.jpg)](https://example.com)</code></pre>
+                <p class="example-tip">💡 Combine with links to make clickable images</p>
+            </div>
+        </section>
+
+        <section id="code">
+            <h2>Code Blocks</h2>
+            <div class="example-block" data-tooltip="Specify language for syntax highlighting">
+                <h3>Inline & Block Code</h3>
+                <pre><code class="language-markdown">`Inline code` for short snippets
+
+```javascript
+// Code block with syntax highlighting
+function hello() {
+    console.log("Hello!");
+}
+```
+
+~~~python
+# Alternative code fence
+def hello():
+    print("Hello!")
+~~~</code></pre>
+                <p class="example-tip">💡 Always specify the language for proper highlighting</p>
+            </div>
+        </section>
+
+        <section id="tables">
+            <h2>Tables</h2>
+            <div class="example-block" data-tooltip="Align columns with colons">
+                <pre><code class="language-markdown">| Left | Center | Right |
+|:-----|:------:|------:|
+| Left | Center | Right |
+| aligned | aligned | aligned |
+
+Simple | Table
+-------|-------
+No | Alignment
+Needed | Here</code></pre>
+                <p class="example-tip">💡 Use simple tables when alignment isn't important</p>
+            </div>
+        </section>
+
+        <section id="quotes">
+            <h2>Quotes & Notes</h2>
+            <div class="example-block" data-tooltip="Use blockquotes for quotes and callouts">
+                <h3>Blockquotes</h3>
+                <pre><code class="language-markdown">> Simple blockquote
+> Multiple lines
+> 
+> New paragraph in quote
+
+> Nested quotes
+>> Inside another quote
+>>> Can go deeper</code></pre>
+            </div>
+
+            <div class="example-block" data-tooltip="Create custom callouts">
+                <h3>Notes & Warnings</h3>
+                <pre><code class="language-markdown">> **Note**
+> Important information here
+
+> **Warning**
+> Critical warning here</code></pre>
+            </div>
+        </section>
+
+        <section id="extended">
+            <h2>Extended Features</h2>
+            <div class="example-block" data-tooltip="Advanced markdown features">
+                <h3>Footnotes</h3>
+                <pre><code class="language-markdown">Text with a footnote[^1]
+
+[^1]: This is the footnote content.</code></pre>
+            </div>
+
+            <div class="example-block" data-tooltip="Use for visual separation">
+                <h3>Horizontal Rules</h3>
+                <pre><code class="language-markdown">---
+***
+___
+
+All create horizontal rules</code></pre>
+            </div>
+
+            <div class="example-block" data-tooltip="Escape markdown characters">
+                <h3>Escaping</h3>
+                <pre><code class="language-markdown">\*Not italic\*
+\# Not a heading
+\[Not a link]()</code></pre>
+                <p class="example-tip">💡 Use \ to escape markdown syntax characters</p>
+            </div>
+        </section>
+
+        <section id="tips">
+            <h2>Tips & Tricks</h2>
+            <div class="example-block" data-tooltip="Best practices for better documents">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use headers to create a clear structure</li>
+                    <li>Include descriptive alt text for images</li>
+                    <li>Be consistent with your syntax choices</li>
+                    <li>Use reference links for repeated URLs</li>
+                    <li>Add blank lines before and after lists</li>
+                    <li>Indent nested content with 2 or 4 spaces</li>
+                </ul>
+            </div>
+
+            <div class="example-block" data-tooltip="Keyboard shortcuts">
+                <h3>Editor Shortcuts</h3>
+                <ul>
+                    <li>Ctrl+B: Toggle bold</li>
+                    <li>Ctrl+I: Toggle italic</li>
+                    <li>Ctrl+K: Insert link</li>
+                    <li>Ctrl+Shift+V: Paste as plain text</li>
+                    <li>Ctrl+Space: Toggle preview</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="live-demo">
+            <h2>Live Demo</h2>
+            <p>Try out Markdown syntax here and see the instant HTML output. Uses the same converter as the main previewer.</p>
+            <div class="live-demo-container">
+                <div class="live-demo-pane">
+                    <h3>Markdown Input</h3>
+                    <textarea id="live-markdown-input" rows="10" placeholder="Type Markdown here..."></textarea>
+                </div>
+                <div class="live-demo-pane">
+                    <h3>HTML Output</h3>
+                    <pre><code id="live-html-output" class="language-html"></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="patterns">
+            <h2>Common Patterns & Templates</h2>
+            <p>Here are some common structures you might use in your Markdown documents. Click to copy the template.</p>
+
+            <div class="example-block" data-tooltip="Click to copy README template">
+                <h3>README File Structure</h3>
+                <pre><code class="language-markdown"># Project Title
+
+[![License](link-to-license-badge)](link-to-license)
+
+Short project description...
+
+## Features
+
+- Feature 1
+- Feature 2
+
+## Installation
+
+```bash
+# Installation steps
+npm install your-package
+```
+
+## Usage
+
+```javascript
+// Basic usage example
+const project = require('your-package');
+project.doSomething();
+```
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## License
+
+[MIT](LICENSE) licensed.</code></pre>
+            </div>
+
+            <div class="example-block" data-tooltip="Click to copy Blog Post template">
+                <h3>Blog Post Template</h3>
+                <pre><code class="language-markdown">--- 
+title: "Your Awesome Blog Post"
+date: YYYY-MM-DD
+tags: [tag1, tag2]
+author: "Your Name"
+---
+
+# Your Awesome Blog Post
+
+Introduction paragraph...
+
+## Section 1
+
+Content for section 1...
+
+![Relevant Image](image.jpg "Image caption")
+
+## Section 2
+
+Content for section 2...
+
+```python
+# Code example
+print("Hello, world!")
+```
+
+## Conclusion
+
+Concluding thoughts...</code></pre>
+                <p class="example-tip">💡 Uses YAML Front Matter for metadata (often used by static site generators)</p>
+            </div>
+
+            <div class="example-block" data-tooltip="Click to copy Meeting Notes template">
+                <h3>Meeting Notes Template</h3>
+                <pre><code class="language-markdown"># Meeting Notes: Project Kickoff
+
+**Date:** YYYY-MM-DD
+**Attendees:**
+- Name 1
+- Name 2
+
+## Agenda
+
+1. Introductions
+2. Project Goals
+3. Next Steps
+
+## Discussion
+
+- **Topic 1:** Details discussed...
+- **Topic 2:** More details...
+
+## Action Items
+
+- [ ] Action item 1 - @Name1 (Due: YYYY-MM-DD)
+- [ ] Action item 2 - @Name2 (Due: YYYY-MM-DD)
+
+## Decisions Made
+
+- Decision 1
+- Decision 2</code></pre>
+            </div>
+        </section>
+
+        <section id="shortcuts">
+            <h2>Keyboard Shortcuts</h2>
+            <p>Boost your productivity with these keyboard shortcuts available in the main editor:</p>
+            <table class="shortcuts-table">
+                <thead>
+                    <tr>
+                        <th>Shortcut</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Ctrl + B</td><td>Toggle Bold</td></tr>
+                    <tr><td>Ctrl + I</td><td>Toggle Italic</td></tr>
+                    <tr><td>Ctrl + K</td><td>Insert Link</td></tr>
+                    <tr><td>Ctrl + `</td><td>Toggle Code</td></tr>
+                    <tr><td>Ctrl + Shift + C</td><td>Toggle Blockquote</td></tr>
+                    <tr><td>Ctrl + Shift + L</td><td>Toggle Unordered List</td></tr>
+                    <tr><td>Ctrl + Shift + O</td><td>Toggle Ordered List</td></tr>
+                    <tr><td>Ctrl + Shift + T</td><td>Toggle Task List</td></tr>
+                    <tr><td>Ctrl + Shift + H</td><td>Insert Horizontal Rule</td></tr>
+                    <tr><td>Ctrl + /</td><td>Toggle Comment (in code blocks)</td></tr>
+                    <tr><td>Ctrl + F</td><td>Open Search/Replace</td></tr>
+                    <tr><td>Ctrl + S</td><td>Save Content (if enabled)</td></tr>
+                    <tr><td>Ctrl + P</td><td>Toggle Preview Pane</td></tr>
+                    <tr><td>Alt + Z</td><td>Toggle Word Wrap</td></tr>
+                    <tr><td>Tab / Shift + Tab</td><td>Indent / Outdent List Item</td></tr>
+                </tbody>
+            </table>
+            <p class="example-tip">💡 Note: Some shortcuts might conflict with browser or OS defaults.</p>
+        </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script>
+        // Copy example to clipboard on click
+        document.querySelectorAll('.example-block').forEach(block => {
+            block.addEventListener('click', () => {
+                const code = block.querySelector('code');
+                if (code) {
+                    navigator.clipboard.writeText(code.textContent);
+                    
+                    // Show feedback
+                    const feedback = document.createElement('div');
+                    feedback.className = 'copy-feedback';
+                    feedback.textContent = 'Copied!';
+                    block.appendChild(feedback);
+                    
+                    setTimeout(() => feedback.remove(), 1000);
+                }
+            });
+        });
+
+        // Highlight current section in sidebar
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('.guide-sidebar a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + entry.target.id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('section[id]').forEach((section) => {
+            observer.observe(section);
+        });
+
+        // Live Demo Functionality
+        const markdownInput = document.getElementById('live-markdown-input');
+        const htmlOutput = document.getElementById('live-html-output');
+
+        let debounceTimer;
+        markdownInput.addEventListener('input', () => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+                convertLiveMarkdown();
+            }, 300); // Debounce input
+        });
+
+        async function convertLiveMarkdown() {
+            const markdown = markdownInput.value;
+            if (!markdown.trim()) {
+                htmlOutput.textContent = '';
+                Prism.highlightElement(htmlOutput);
+                return;
+            }
+
+            try {
+                const response = await fetch('/convert', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `markdown=${encodeURIComponent(markdown)}`
+                });
+                if (response.ok) {
+                    const html = await response.text();
+                    // Display raw HTML, properly escaped for the code block
+                    htmlOutput.textContent = html;
+                    Prism.highlightElement(htmlOutput);
+                } else {
+                    htmlOutput.textContent = 'Error converting markdown.';
+                }
+            } catch (error) {
+                htmlOutput.textContent = 'Network error during conversion.';
+                console.error("Live demo conversion error:", error);
+            }
+        }
+
+        // Initial conversion if there's default content
+        convertLiveMarkdown();
+
+        // Guide Search Functionality
+        const guideSearchInput = document.getElementById('guide-search');
+        const guideNavList = document.getElementById('guide-nav-list');
+        const guideSections = document.querySelectorAll('.guide-content section[id]');
+        const guideNavLinks = guideNavList.querySelectorAll('li a');
+
+        guideSearchInput.addEventListener('input', () => {
+            const searchTerm = guideSearchInput.value.toLowerCase();
+            let hasVisibleSections = false;
+
+            guideSections.forEach(section => {
+                const sectionTitle = section.querySelector('h2')?.textContent.toLowerCase() || '';
+                const sectionContent = section.textContent.toLowerCase();
+                const isMatch = sectionTitle.includes(searchTerm) || sectionContent.includes(searchTerm);
+                
+                section.style.display = isMatch ? 'block' : 'none';
+                if (isMatch) hasVisibleSections = true;
+
+                // Show/hide corresponding nav link
+                const navLink = guideNavList.querySelector(`a[href="#${section.id}"]`);
+                if (navLink) {
+                    navLink.parentElement.style.display = isMatch ? 'block' : 'none';
+                }
+            });
+
+            // If no sections match, show a message (optional)
+            // You could add a <div id="no-results">No matches found</div>
+        });
+
+        // Fullscreen Toggle for Guide
+        const fullscreenBtn = document.getElementById('guide-fullscreen-btn');
+        const fullscreenIcon = fullscreenBtn.querySelector('i');
+
+        function toggleGuideFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        fullscreenBtn.addEventListener('click', toggleGuideFullscreen);
+
+        // Update button icon based on fullscreen state
+        document.addEventListener('fullscreenchange', () => {
+            if (document.fullscreenElement) {
+                fullscreenIcon.classList.remove('bi-arrows-fullscreen');
+                fullscreenIcon.classList.add('bi-fullscreen-exit');
+                fullscreenBtn.title = "Exit Fullscreen Guide";
+            } else {
+                fullscreenIcon.classList.remove('bi-fullscreen-exit');
+                fullscreenIcon.classList.add('bi-arrows-fullscreen');
+                fullscreenBtn.title = "Toggle Fullscreen Guide";
+            }
+        });
+    </script>
+</body>
+</html> 

@@ -133,6 +133,9 @@ func main() {
 	http.Handle("/uploads/", http.StripPrefix("/uploads/", http.FileServer(http.Dir(*uploadDir))))
 	http.HandleFunc("/convert", handleMarkdownConvert)
 	http.HandleFunc("/upload", handleImageUpload)
+	http.HandleFunc("/guide", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "static/guide.html")
+	})
 
 	// Open browser automatically unless disabled
 	if !*noOpen {
@@ -186,6 +189,7 @@ func handlePreview(w http.ResponseWriter, r *http.Request) {
 		let lastSavedContent = '';
 		let isOnline = true;
 		let searchVisible = false;
+		let guideVisible = false;
 
 		function updatePreview() {
 			const markdown = document.getElementById('editor').value;
@@ -468,20 +472,18 @@ func handlePreview(w http.ResponseWriter, r *http.Request) {
 
 		function toggleGuide() {
 			const guide = document.getElementById('guide');
-			const button = document.querySelector('[onclick="toggleGuide()"]');
-			guide.classList.toggle('visible');
-			
-			// Reset animations when showing
-			if (guide.classList.contains('visible')) {
-				const sections = guide.querySelectorAll('.guide-section');
-				sections.forEach(section => {
-					section.style.animation = 'none';
-					section.offsetHeight; // Force reflow
-					section.style.animation = null;
-				});
-				button.style.color = 'var(--accent-color)';
+			if (!guide) {
+				const guideFrame = document.createElement('iframe');
+				guideFrame.id = 'guide';
+				guideFrame.src = '/guide';
+				guideFrame.className = 'guide-pane';
+				document.body.appendChild(guideFrame);
+				document.body.classList.add('guide-open');
+				guideVisible = true;
 			} else {
-				button.style.color = null;
+				guide.remove();
+				document.body.classList.remove('guide-open');
+				guideVisible = false;
 			}
 		}
 
@@ -719,25 +721,6 @@ func main() {
 			<div class="preview-pane">
 				<div id="preview" class="preview">
 					<div class="loading">Loading preview...</div>
-				</div>
-			</div>
-			<div id="guide" class="guide-pane">
-				<h2>Markdown Guide</h2>
-				<div class="guide-section">
-					<h3>Headers</h3>
-					<div class="guide-example">
-						<div class="tooltip"><i class="bi bi-info-circle"></i>
-							<span class="tooltip-text">Use headers to create a clear document structure. More '#' symbols mean smaller headers. Tip: Leave a space after the '#' symbols.</span>
-						</div>
-						<pre># Heading 1
-## Heading 2
-### Heading 3</pre>
-						<div class="result">
-							<h1>Heading 1</h1>
-							<h2>Heading 2</h2>
-							<h3>Heading 3</h3>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
