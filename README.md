@@ -15,6 +15,7 @@
   <a href="#features">Features</a> •
   <a href="#quick-start">Quick Start</a> •
   <a href="#keyboard-shortcuts">Shortcuts</a> •
+  <a href="#markdown-guide">Guide</a> •
   <a href="#architecture">Architecture</a>
 </div>
 
@@ -104,9 +105,29 @@ http://localhost:8080
 | Category | Shortcut | Action | Context |
 |----------|----------|--------|---------|
 | **File Operations** | `Ctrl+S` | Save | Editor |
-| **Text Formatting** | `Ctrl+B`<br>`Ctrl+I`<br>`Ctrl+K` | Bold<br>Italic<br>Code Block | Editor |
-| **Insert Elements** | `Ctrl+L` | Link | Editor |
-| **UI Controls** | `Ctrl+M`<br>`Ctrl+/` | Toggle Preview<br>Toggle Guide | Global |
+| **Text Formatting** | `Ctrl+B`<br>`Ctrl+I`<br>`Ctrl+K`<br>`Ctrl+`\`` | Bold<br>Italic<br>Link<br>Code | Editor |
+| **List Operations** | `Ctrl+Shift+L`<br>`Ctrl+Shift+O`<br>`Ctrl+Shift+T` | Unordered List<br>Ordered List<br>Task List | Editor |
+| **Block Elements** | `Ctrl+Shift+C`<br>`Ctrl+Shift+H` | Blockquote<br>Horizontal Rule | Editor |
+| **UI Controls** | `Ctrl+P`<br>`Ctrl+F`<br>`Alt+Z`<br>`Ctrl+?` | Toggle Preview<br>Open Search<br>Toggle Word Wrap<br>Toggle Guide | Global |
+
+*For a complete list of keyboard shortcuts, see the Shortcuts section in the built-in guide.*
+
+## Markdown Guide
+
+Markdown-Preview includes a comprehensive interactive guide that helps users learn and master Markdown syntax:
+
+- **Interactive Examples**: Click any code example to copy it to your clipboard.
+- **Live Demo**: Test Markdown syntax and see the HTML output in real-time.
+- **Template Library**: Ready-to-use templates for READMEs, blog posts, and meeting notes.
+- **Search Functionality**: Quickly find specific Markdown syntax elements.
+- **Keyboard Shortcuts**: Complete list of keyboard shortcuts for efficient editing.
+- **Fullscreen Mode**: Distraction-free learning experience.
+
+Access the guide by clicking the **?** button in the toolbar.
+
+<div align="center">
+  <img src="screenshots/guide.png" alt="Markdown Guide Screenshot" width="800"/>
+</div>
 
 ## Architecture
 
@@ -115,7 +136,7 @@ Markdown-Preview/
 ├── main.go           # Application entry point and server setup
 ├── static/          # Static assets and client-side resources
 │   ├── styles.css   # CSS styling and theme definitions
-│   ├── scripts/     # JavaScript modules
+│   ├── guide.html   # Interactive markdown guide with documentation
 │   └── images/      # Static images and icons
 ├── templates/       # Go HTML templates
 │   └── index.html   # Main application template
