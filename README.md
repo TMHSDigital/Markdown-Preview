@@ -1,3 +1,5 @@
+<div align="center">
+
 # Markdown-Preview
 
 [![Go Version](https://img.shields.io/github/go-mod/go-version/TMHSDigital/Markdown-Preview)](https://go.dev/)
@@ -6,6 +8,8 @@
 [![Made with Go](https://img.shields.io/badge/Made%20with-Go-1f425f.svg)](https://go.dev)
 [![Build Size](https://img.shields.io/badge/build%20size-2%20MB-success)](https://github.com/TMHSDigital/Markdown-Preview)
 [![Go Report Card](https://goreportcard.com/badge/github.com/TMHSDigital/Markdown-Preview)](https://goreportcard.com/report/github.com/TMHSDigital/Markdown-Preview)
+
+</div>
 
 <div align="center">
   <img src="static/images/logo.png" alt="Markdown-Preview Logo" width="200"/>
